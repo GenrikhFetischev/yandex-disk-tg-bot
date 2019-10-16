@@ -1,0 +1,17 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-consecutive-blank-lines": false,
+    "object-literal-sort-keys": false,
+    "eofline": false,
+    "no-shadowed-variable": false,
+    "interface-name": false,
+    "no-console": {
+      "severity": "warning",
+      "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+    }
+  }
+}
