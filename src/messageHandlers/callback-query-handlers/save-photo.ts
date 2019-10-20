@@ -1,7 +1,7 @@
 import { ContextMessageUpdate } from "telegraf";
-import bot from "../../../bot";
-import { saveFile } from "../../../yandex";
-import { CallbackDataStorage } from "../../callback-data-storage";
+import bot from "../../bot";
+import { saveFile } from "../../yandex";
+import { CallbackDataStorage } from "../callback-data-storage";
 
 export const createSavePhotoHandler = (
   callbackDataStorage: CallbackDataStorage,
@@ -15,13 +15,17 @@ export const createSavePhotoHandler = (
         return next();
       }
 
-      const fileLink = await bot.telegram.getFileLink(savedData);
+      if (savedData.type === "noSave") {
+        return ctx.reply(savedData.payload);
+      }
+
+      const fileLink = await bot.telegram.getFileLink(savedData.payload);
       // @ts-ignore
-      const file = await fetch(fileLink).then((r) => r.buffer());
+      const file: Buffer = await fetch(fileLink).then((r) => r.buffer());
 
       const date = new Date();
       const dateString = `${date.getDate()}-${date.getMonth() +
-        1}-${date.getFullYear()}`;
+        1}-${date.getFullYear()}-${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
 
       const res = await saveFile({
         ext: "jpeg",

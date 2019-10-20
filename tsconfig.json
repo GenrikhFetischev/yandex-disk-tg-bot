@@ -6,7 +6,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
-    "types": ["node"]
+    "types": ["node"],
+    "outDir": "./build"
   },
   "include": ["src/"],
   "exclude": ["node_modules"]

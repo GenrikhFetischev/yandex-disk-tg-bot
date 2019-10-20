@@ -21,11 +21,18 @@ export const createSavePhotoMenuMiddleware = (
       {
         text: Commands.Save,
         actionId: v4(),
-        callbackData: photoLink,
+        callbackData: {
+          type: "save",
+          payload: photoLink,
+        },
       },
       {
         text: Commands.NoSave,
         actionId: v4(),
+        callbackData: {
+          type: "noSave",
+          payload: "Ok!",
+        },
       },
     ];
 

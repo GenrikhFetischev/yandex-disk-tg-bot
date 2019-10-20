@@ -1,10 +1,9 @@
 import fetch from "isomorphic-fetch";
-import secret from "../../secret";
 
 const baseUrl = "https://cloud-api.yandex.net/v1/disk";
 
 const headers = {
-  "Authorization": secret.yandexToken,
+  "Authorization": process.env.YANDEX_TOKEN,
   "Content-Type": "application/json",
 };
 

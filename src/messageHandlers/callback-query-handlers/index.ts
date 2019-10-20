@@ -1,1 +1,1 @@
-export * from "./photo-menu-handlers";
+export * from "./save-photo";

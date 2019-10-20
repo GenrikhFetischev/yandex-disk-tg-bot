@@ -1,6 +1,6 @@
 import Telegraf, { Markup } from "telegraf";
-import secret from "../../secret";
 
-const bot = new Telegraf(secret.tgToken);
+
+const bot = new Telegraf(process.env.TG_TOKEN);
 
 export default bot;
